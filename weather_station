@@ -24,6 +24,36 @@ void setup()
   Serial.begin(9600);
   tft.begin();
   dht.begin();  
+}
 
+void loop() 
+{ 
+    
+
+    tft.setBackgroundColor(COLOR_BLACK);
+    tft.setFont(Terminal12x16);
+    tft.drawText(0,0,"Weather Station",COLOR_WHITE);
+    
+
+    
+    tft.setFont(Terminal6x8);
+    tft.drawText(0, 30, "Humidity :", COLOR_CYAN);
+    tft.drawText(100, 30, String(hum), COLOR_CYAN);
+    
+    tft.drawText(0, 60, "Celcius :", COLOR_CYAN);
+    tft.drawText(100, 60, String(temp), COLOR_CYAN);
+    tft.drawText(140, 60, "*C", COLOR_CYAN);
+    
+    tft.drawText(0, 90, "Fahrenheit :", COLOR_CYAN);
+    tft.drawText(100, 90, String(convertedF), COLOR_CYAN);
+    tft.drawText(140, 90, "*F", COLOR_CYAN);
+    
+    tft.drawText(0, 120, "Kelvin :", COLOR_CYAN);
+    tft.drawText(100, 120, String(convertedK), COLOR_CYAN);
+    tft.drawText(150, 120, "*K", COLOR_CYAN);
+    
+    tft.drawText(0, 150, "Rankin :", COLOR_CYAN);
+    tft.drawText(100, 150, String(convertedR), COLOR_CYAN);
+    tft.drawText(150, 150, "*R", COLOR_CYAN);
 
 }

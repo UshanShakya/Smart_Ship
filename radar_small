@@ -13,3 +13,13 @@
 
 TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_SDI, TFT_CLK, TFT_LED);
 
+Servo myServo;
+const int trigPin = 5;
+const int echoPin = 6;
+int val = 200;
+int x;
+long duration;
+int distance;
+int k;
+int f;
+int i;

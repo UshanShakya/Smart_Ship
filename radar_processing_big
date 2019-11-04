@@ -94,4 +94,32 @@ void drawLine() {
   translate(width/2,height-height*0.074); // moves the starting coordinats to new location
   line(0,0,(height-height*0.12)*cos(radians(iAngle)),-(height-height*0.12)*sin(radians(iAngle))); // draws the line according to the angle
   popMatrix();
+
 }
+
+void drawText() { // draws the texts on the screen
+  
+  pushMatrix();
+  if(iDistance>40) {
+  noObject = "Out of Range";
+  }
+  else {
+  noObject = "In Range";
+  }
+  fill(0,0,0);
+  noStroke();
+  rect(0, height-height*0.0648, width, height);
+  fill(98,245,31);
+  textSize(25);
+  
+  text("10cm",width-width*0.3854,height-height*0.0833);
+  text("20cm",width-width*0.281,height-height*0.0833);
+  text("30cm",width-width*0.177,height-height*0.0833);
+  text("40cm",width-width*0.0729,height-height*0.0833);
+  textSize(25);
+  text("Object: " + noObject, width-width*0.875, height-height*0.0277);
+  text("Angle: " + iAngle +" °", width-width*0.48, height-height*0.0277);
+  text("Distance: ", width-width*0.26, height-height*0.0277);
+  if(iDistance<40) {
+  text("        " + iDistance +" cm", width-width*0.225, height-height*0.0277);
+  }

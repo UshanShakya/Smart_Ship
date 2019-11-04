@@ -7,3 +7,10 @@ long duration;
 int distance;
 Servo myServo; 
 
+void setup() {
+  pinMode(trigPin, OUTPUT); // trigPin as an Output
+  pinMode(echoPin, INPUT); // echoPin as an Input
+  pinMode(buz, OUTPUT); 
+  Serial.begin(9600);
+  myServo.attach(10); // Pin Connected To Servo
+}

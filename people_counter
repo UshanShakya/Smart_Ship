@@ -1,1 +1,12 @@
 #include <ESP8266WiFi.h>
+const char* ssid = "Man38";                                  //fill in your wifi name
+const char* password = "manish123";                              //fill in your wifi password
+WiFiClient client;
+
+const int trigPin = D0;
+const int echoPin = D1;
+const int trigPin1 = D3;
+const int echoPin1 = D4;
+int peopleIn, peopleOut,totalInside;
+long duration,duration1;
+int distanceCm,distanceCm1;

@@ -1,3 +1,22 @@
 #include <SPI.h>
 #include <MFRC522.h>
 #include <Servo.h>
+
+
+ //Define pins of RFID Code reader
+#define SS_PIN 10
+#define RST_PIN 9
+
+//Define pin of green LED
+#define LED_G 5 
+
+//Define pin of red LED
+#define LED_R 4 
+
+//Define pin of buzzer
+#define BUZZER 2 
+
+//Create an instance of MFRC522
+MFRC522 mfrc522(SS_PIN, RST_PIN); 
+
+Servo myServo; //define servo name

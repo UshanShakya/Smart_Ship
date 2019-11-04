@@ -105,4 +105,6 @@ void notifyUptime(){
   Blynk.virtualWrite(V1, peopleIn);
   Blynk.virtualWrite(V2, peopleOut);
   Blynk.virtualWrite(V3, totalInside);
+
+  as
 }

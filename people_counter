@@ -10,3 +10,28 @@ const int echoPin1 = D4;
 int peopleIn, peopleOut,totalInside;
 long duration,duration1;
 int distanceCm,distanceCm1;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+Serial.println();
+Serial.println();
+Serial.print("Connecting to ");
+Serial.println(ssid);
+Serial.print("..........");
+Serial.println();
+WiFi.begin(ssid, password);
+
+while (WiFi.status() != WL_CONNECTED) {
+delay(500);
+
+}
+Serial.println("WiFi connected");
+Serial.println();
+
+}

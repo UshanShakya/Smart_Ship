@@ -23,3 +23,17 @@ int distance;
 int k;
 int f;
 int i;
+
+//Setup part
+void setup() {
+#if defined(ESP32)
+  hspi.begin();
+  tft.begin(hspi);
+#else
+  tft.begin();
+#endif
+  Serial.begin(9600);
+  radar();
+  myServo.attach(9);
+}
+

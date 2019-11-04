@@ -47,6 +47,7 @@ This is a simple weather detection system that shows the current temperature and
 ![am2302](images/weather.png)
 
 # GPS
+![am2302](images/gps.png)
 
 # Servo
 ![servo](images/servo.png)

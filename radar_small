@@ -64,7 +64,7 @@ tft.setOrientation(1);
     double py = 0 + 110 * sin(radians);
     
     tft.drawLine(tft.maxX()/2,0,px, py, COLOR_WHITE);
-
+    int distance = calculateDistance();
   
   }
  
@@ -86,7 +86,13 @@ tft.setOrientation(1);
     double px = tft.maxX()/2 + 110 * cos(radians);
     double py = 0 + 110 * sin(radians);
     tft.drawLine(tft.maxX()/2,0,px, py, COLOR_GREEN);
-    
+    int distance = calculateDistance();
+    if (distance<60){
+    tft.drawText(100,tft.maxY()-40,String(distance),COLOR_RED);
+    tft.drawText(150,tft.maxY()-40,"cm",COLOR_RED);
+    tft.drawLine(tft.maxX()/2,0,px, py, COLOR_RED); 
+    }
+    delay(50);
   }
 }
 void radar(){

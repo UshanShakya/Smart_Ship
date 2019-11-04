@@ -11,3 +11,5 @@
 #define TFT_CLK A1 // SCK
 #define TFT_LED 0 // 0 if wired to +5V directly
 
+TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_SDI, TFT_CLK, TFT_LED);
+

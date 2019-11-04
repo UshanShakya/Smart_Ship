@@ -38,7 +38,57 @@ void setup() {
 }
 
 
+void loop() {
 
+tft.setOrientation(1);
+ 
+  
+  for (i=0; i<180; i=i+6)  // a bigger radius might need more steps
+  {
+    
+    Serial.println(i);
+    tft.setFont(Terminal12x16);
+    if(i>100){
+    tft.drawText(70,tft.maxY()-20,String(i),COLOR_CYAN);
+    }
+    if(i<100){
+      tft.drawText(70,tft.maxY()-20,String(i),COLOR_CYAN);
+      tft.drawText(95,tft.maxY()-20,"  ",COLOR_BLACK);
+    }
+    myServo.write(i);
+    tft.drawText(120,tft.maxY()-20,"deg",COLOR_CYAN);
+    tft.drawText(150,tft.maxY()-40,"cm",COLOR_CYAN);
+
+    double radians = i * PI / 180;
+    double px = tft.maxX()/2 + 110 * cos(radians);
+    double py = 0 + 110 * sin(radians);
+    
+    tft.drawLine(tft.maxX()/2,0,px, py, COLOR_WHITE);
+
+  
+  }
+ 
+  for(i=180; i>0; i = i-6){
+    Serial.println(i);
+    tft.setFont(Terminal12x16);
+    if(i>100){
+    tft.drawText(70,tft.maxY()-20,String(i),COLOR_CYAN);
+    }
+    if(i<100){
+      tft.drawText(70,tft.maxY()-20,String(i),COLOR_CYAN);
+      tft.drawText(95,tft.maxY()-20,"  ",COLOR_BLACK);
+    }
+    myServo.write(i);
+    tft.drawText(120,tft.maxY()-20,"deg",COLOR_CYAN);
+    tft.drawText(150,tft.maxY()-40,"cm",COLOR_CYAN);
+
+    double radians = i * PI / 180;
+    double px = tft.maxX()/2 + 110 * cos(radians);
+    double py = 0 + 110 * sin(radians);
+    tft.drawLine(tft.maxX()/2,0,px, py, COLOR_GREEN);
+    
+  }
+}
 void radar(){
   tft.setBacklight(LOW);
   tft.setOrientation(1);

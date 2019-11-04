@@ -1,6 +1,10 @@
 #include <ESP8266WiFi.h>
-const char* ssid = "Man38";                                  //fill in your wifi name
-const char* password = "manish123";                              //fill in your wifi password
+const char* ssid = "Man";                                  //fill in your wifi name
+const char* password = "manish12345";                              //fill in your wifi password
+#include <BlynkSimpleEsp8266.h>
+#include <SPI.h>
+#define BLYNK_PRINT Serial
+
 WiFiClient client;
 
 const int trigPin = D0;
@@ -10,6 +14,8 @@ const int echoPin1 = D4;
 int peopleIn, peopleOut,totalInside;
 long duration,duration1;
 int distanceCm,distanceCm1;
+char auth[] = "0194nRtX6XKb1JTV8gObsL7Amx3QCdAS";
+
 
 void setup() {
   pinMode(trigPin, OUTPUT);
@@ -29,12 +35,21 @@ WiFi.begin(ssid, password);
 
 while (WiFi.status() != WL_CONNECTED) {
 delay(500);
+}
+
+Blynk.begin(auth, ssid, pass);
+
+Blynk.notify("Device started");
+   // Setup a function to be called every minute
+  timer.setInterval(1000L,notifyUptime);
 
 }
 Serial.println("WiFi connected");
 Serial.println();
 
 }
+
+
 void loop() {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
@@ -86,4 +101,8 @@ void loop() {
   Serial.println(totalInside);
 }
 
-
+void notifyUptime(){
+  Blynk.virtualWrite(V1, peopleIn);
+  Blynk.virtualWrite(V2, peopleOut);
+  Blynk.virtualWrite(V3, totalInside);
+}

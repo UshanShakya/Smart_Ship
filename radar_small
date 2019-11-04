@@ -37,3 +37,24 @@ void setup() {
   myServo.attach(9);
 }
 
+
+
+void radar(){
+  tft.setBacklight(LOW);
+  tft.setOrientation(1);
+  tft.drawRectangle(0, 0, tft.maxX() - 1, tft.maxY() - 1, COLOR_WHITE);
+  tft.setFont(Terminal6x8);  
+  tft.drawCircle(110, 0, 50, COLOR_CYAN);
+  tft.drawCircle(110, 0, 100, COLOR_CYAN);
+  
+  tft.setOrientation(3);
+  tft.drawText(105,130,"30",COLOR_CYAN);
+  tft.drawText(105,90,"60",COLOR_CYAN);
+  
+  tft.setOrientation(1);
+  tft.setFont(Terminal12x16);
+  tft.drawText(0,tft.maxY()-60,"RADAR",COLOR_CYAN);
+  tft.drawText(0,tft.maxY()-40,"Distance:",COLOR_CYAN);
+  tft.drawText(0,tft.maxY()-20,"Angle:",COLOR_CYAN);
+  
+}

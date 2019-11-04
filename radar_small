@@ -1,0 +1,13 @@
+// Include application, user and local libraries
+#include <Servo.h>.
+
+#include "SPI.h"
+#include "TFT_22_ILI9225.h"
+
+#define TFT_RST A4
+#define TFT_RS A3
+#define TFT_CS A5 // SS
+#define TFT_SDI A2 // MOSI
+#define TFT_CLK A1 // SCK
+#define TFT_LED 0 // 0 if wired to +5V directly
+

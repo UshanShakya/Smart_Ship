@@ -4,3 +4,11 @@
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 #include <Servo.h>
+
+Servo myservo;
+int pos = 0;  
+
+char auth[] = "20ea1b65a8c64efb8b13e841eaa5f195";
+
+char ssid[] = "Man";
+char pass[] = "manish12345";

@@ -28,7 +28,38 @@ void setup()
 
 void loop() 
 { 
+    float convertedF = 0.00;
+    float convertedK = 0.00;
+    float convertedR = 0.00;
     
+    
+    hum = dht.readHumidity();
+    temp= dht.readTemperature();
+
+    Serial.print("Celsius = ");
+    Serial.print(temp);
+    Serial.println("*C");
+
+    convertedF = ( temp * 1.8 ) + 32;
+    Serial.print("Fahrenheit = ");
+    Serial.print(convertedF);
+    //Print degree symbol 
+    Serial.println("*F");
+
+    convertedK = temp + 273.15;
+    Serial.print("Kelvin = ");
+    Serial.print(convertedK);
+    Serial.println("*K");
+           
+    convertedR = (convertedK * 1.8);
+    Serial.print("Rankin = ");
+    Serial.print(convertedR);
+    //Print degree symbol   
+    Serial.println("*R");
+    
+
+    Serial.print("Humidity =");
+    Serial.println(hum);
 
     tft.setBackgroundColor(COLOR_BLACK);
     tft.setFont(Terminal12x16);

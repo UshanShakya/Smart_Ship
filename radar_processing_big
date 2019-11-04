@@ -12,3 +12,13 @@ float pixsDistance;
 int iAngle, iDistance;
 int index1=0;
 int index2=0;
+
+
+void setup() {
+  
+ size (1366, 710); // ***CHANGE THIS TO YOUR SCREEN RESOLUTION***
+ smooth();
+ myPort = new Serial(this,"COM20", 9600); // starts the serial communication
+ myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
+
+}

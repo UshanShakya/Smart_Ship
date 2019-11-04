@@ -35,3 +35,55 @@ Serial.println("WiFi connected");
 Serial.println();
 
 }
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distanceCm = duration * 0.0340 / 2;
+  
+  digitalWrite(trigPin1, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin1, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin1, LOW);
+  duration1 = pulseIn(echoPin1, HIGH);
+  distanceCm1 = duration1 * 0.0340 / 2;
+  
+  
+  Serial.println("Distance1: ");
+  Serial.println(distanceCm);
+  Serial.println("Distance2: ");
+  Serial.println(distanceCm1);
+
+  
+  delay(1000);
+
+  if(distanceCm<=30 && distanceCm>0)
+  {
+    peopleIn = peopleIn +1;
+    totalInside = totalInside +1;
+    
+  }
+  else if(distanceCm1<=30 && distanceCm1>0)
+  {
+    peopleOut = peopleOut +1;
+    totalInside = totalInside-1;
+    if(totalInside<= 0){
+      totalInside = 0;
+    }
+    if(peopleOut>peopleIn){
+      peopleOut=peopleIn;
+    }
+  }
+  Serial.println("People Gone Inside");
+  Serial.println(peopleIn);
+  Serial.println("People Gone Outside");
+  Serial.println(peopleOut);
+  Serial.println("People in Boat");
+  Serial.println(totalInside);
+}
+
+

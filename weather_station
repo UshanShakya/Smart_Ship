@@ -1,3 +1,17 @@
 #include <DHT.h>
 #include "SPI.h"
 #include "TFT_22_ILI9225.h"
+#define DHTPIN 2     // what pin we're connected to
+#define DHTTYPE DHT22   // DHT22
+
+
+#define TFT_RST A4
+#define TFT_RS  A3
+#define TFT_CS  A5  // SS
+#define TFT_SDI A2  // MOSI
+#define TFT_CLK A1  // SCK
+#define TFT_LED 0   // 0 if wired to +5V directly
+
+// Use software SPI (slower)
+TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_SDI, TFT_CLK, TFT_LED);
+DHT dht(DHTPIN, DHTTYPE); // Initialize DHT sensor for normal 16mhz Arduino

@@ -5,6 +5,8 @@ const char* password = "manish12345";                              //fill in you
 #include <SPI.h>
 #define BLYNK_PRINT Serial
 
+BlynkTimer timer;
+
 WiFiClient client;
 
 const int trigPin = D0;
@@ -37,13 +39,13 @@ while (WiFi.status() != WL_CONNECTED) {
 delay(500);
 }
 
-Blynk.begin(auth, ssid, pass);
+Blynk.begin(auth, ssid, password);
 
 Blynk.notify("Device started");
    // Setup a function to be called every minute
-  timer.setInterval(1000L,notifyUptime);
+timer.setInterval(1000L,notifyUptime);
 
-}
+
 Serial.println("WiFi connected");
 Serial.println();
 
@@ -51,6 +53,11 @@ Serial.println();
 
 
 void loop() {
+  Blynk.run();
+  timer.run();
+  
+}
+void notifyUptime(){
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -99,12 +106,7 @@ void loop() {
   Serial.println(peopleOut);
   Serial.println("People in Boat");
   Serial.println(totalInside);
-}
-
-void notifyUptime(){
   Blynk.virtualWrite(V1, peopleIn);
   Blynk.virtualWrite(V2, peopleOut);
   Blynk.virtualWrite(V3, totalInside);
-
-  as
 }

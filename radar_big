@@ -1,0 +1,9 @@
+#include <Servo.h>. 
+const int trigPin = 8;
+const int echoPin = 9;
+int buz=7; 
+// defining time and distance
+long duration;
+int distance;
+Servo myServo; 
+

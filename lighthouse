@@ -12,3 +12,12 @@ char auth[] = "20ea1b65a8c64efb8b13e841eaa5f195";
 
 char ssid[] = "Man";
 char pass[] = "manish12345";
+
+void setup()
+{
+  Serial.begin(9600);
+
+  Blynk.begin(auth, ssid, pass);
+    myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+
+}

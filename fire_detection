@@ -1,3 +1,9 @@
 #define BLYNK_PRINT Serial
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
+
+BlynkTimer timer;
+char auth[] = "aCpoTATMXBkKJTrd6ghqiZib6lxjwTpC"; //Auth code sent via Email
+char ssid[] = "Man38"; //Wifi name
+char pass[] = "manish123";  //Wifi Password
+int flag=0;

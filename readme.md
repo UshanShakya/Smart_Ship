@@ -25,6 +25,8 @@ This is a gps technology that shows the current location of the ship. It uses a 
 # Weather Station
 This is a simple weather detection system that shows the current temperature and humidity using a AM2302 sensor. It then displays this information on a TFT LCD screen.
 
+# YOUTUBE link
+https://youtu.be/mFpvrt69edg
 
 # Senors and other devices that we have used 
 
